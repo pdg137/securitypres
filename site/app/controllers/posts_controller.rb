@@ -3,7 +3,13 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+
+    # Search code with SQL injection flaw 
+    if params[:q]
+      @posts = Post.where("title like '%#{params[:q]}%'")
+    else
+      @posts = Post.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb
