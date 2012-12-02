@@ -28,3 +28,13 @@
 <br />
 
 <%= link_to 'New Post', new_post_path %>
+
+<% if session[:logged_in] %>
+<p>Logged in <img src="/admin/icon"/></p>
+<p><a href="/admin/login">Log out</a></p>
+<% else %>
+<form action="/admin/login">
+  Admin password: <input type="text" name="password">
+  <input type="submit" value="Log in">
+</form>
+<% end %>
