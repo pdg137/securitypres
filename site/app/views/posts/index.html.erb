@@ -1,5 +1,5 @@
 <form>
-  <input type="text" name="q" value="<%= params[:q].html_safe %>">
+  <input type="text" name="q" value="<%= params[:q].to_s.html_safe %>">
   <input type="submit">
 </form>
 
